@@ -1,4 +1,5 @@
 const { Attendee, Event } = require('../models');
+const {getEventWithCountOfAttendees} = require('./event.service');
 
 const craeteAttendee = async (body) => {
     return await Attendee.create(body);
@@ -59,8 +60,8 @@ const updateAttendee = async (attendeeId, updateBody) => {
 const averageAttendee = async () => {
     const totalAttendees = await Attendee.countDocuments();
     const totalEvents = await Event.countDocuments();
-    const average = totalAttendees / totalEvents;
-    return { average };
+    const average = totalAttendees * 100 / totalEvents ;
+    return { average: String(average) + "%" };
 };
 
 const popularEvents = async () => {
@@ -95,7 +96,7 @@ const popularEvents = async () => {
             }
         }
     ]);
-}
+};
 
 module.exports = {
     popularEvents,
