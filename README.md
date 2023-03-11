@@ -2,6 +2,24 @@
 
 An event management service built with Nodejs and moogoose using MongoDB.
 
+## QUestions
+Create an event management system RESTFUL API:
+User Story: As an event organizer, I want to create and manage events through a web platform. I should be able to:
+
+Register and log in to the platform (I should get a welcome mail when I register).
+Create new events with details such as name, date, location, description.
+Manage attendees by adding, editing and removing attendees from the event (attendees should get a mail when they are added to or removed from an event).
+Generate reports for each event with information about attendee count etc.
+2. Integrate MongoDB Atlas to your application.
+
+3. Push your codes to GitHub, deploy your app on Render.com and attach the live link to your GitHub repository.
+
+4. Document and publish your API with POSTMAN, attach the collection link alongside your Mailtrap login details to your GitHub README file.
+
+5. Submit the link to your GitHub repository.
+
+
+
 
 ## Quick Start
 
