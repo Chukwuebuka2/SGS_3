@@ -22,6 +22,8 @@ const eventSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
+},{
+    timestamps: true
 });
 
 // add plugin that converts mongoose to json
