@@ -9,7 +9,7 @@ const getAllEvent = async () => {
 };
 
 const getEventById = async (id) => {
-    return await Event.findById(id).populate('attendees', 'name email phoneNumber')
+    return await Event.findById(id).populate('attendees', 'name email phoneNumber').populate('organizer', 'name email')
 };
 
 const getEventAttendees = async (id) => {

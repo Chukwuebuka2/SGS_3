@@ -83,6 +83,26 @@ Event Organizer`
   await sendEmail(attendeeEmail, subject, text);
 }
 
+const rejectEventEmail = async (name, title, date, email, reasons) => {
+  const subject = `Cancellation of Event - ${title}`;
+  const text = `Dear ${name},
+
+I am writing to inform you that the ${title} scheduled to take place on ${date} has been cancelled due to ${reasons}. We sincerely apologize for any inconvenience this may cause.
+We understand the amount of time, effort, and resources that you and your team have put into planning this event. We want to assure you that this decision was not made lightly, and we tried our best to explore all possible options before coming to this difficult decision.
+  
+We value your partnership and we regret any negative impact this may have on your organization. We hope that you understand the situation and we look forward to continuing our partnership with you in the future.
+  
+If you have any questions or concerns, please do not hesitate to contact us. We would be happy to discuss this matter with you further.
+  
+Thank you for your understanding.
+  
+Sincerely, 
+  Nwokporo Chukwuebuka Victor
+  CEO, Eventify 🚀
+  `
+  await sendEmail(email, subject, text);
+}
+
 module.exports = {
   sendAttendeeRemovalMail,
   transport,
@@ -90,5 +110,6 @@ module.exports = {
   sendWelcomeEmail,
   sendResetPasswordEmail,
   sendVerificationEmail,
-  sendAttendeeEmail
+  sendAttendeeEmail,
+  rejectEventEmail
 };

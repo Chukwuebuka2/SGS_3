@@ -46,10 +46,21 @@ const updateEvent = {
     })
 };
 
+const adminUpdateEvent = {
+    params: Joi.object().keys({
+        eventId: Joi.string().required()
+    }),
+    body: Joi.object().keys({
+        status: Joi.bool(),
+        reason: Joi.string()
+    })
+}
+
 module.exports = {
     removeAttendeeFromEvent,
     createEvent,
     getEventById,
     updateEvent,
-    addAttendee
+    addAttendee,
+    adminUpdateEvent
 }

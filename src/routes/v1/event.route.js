@@ -13,6 +13,7 @@ router.get('/count', eventController.getEventWithCountOfAttendees);
 router.get('/:eventId', auth(), validate(eventValidation.getEventById), eventController.getEventById);
 router.delete('/:eventId', auth(), validate(eventValidation.getEventById), eventController.deleteEvent);
 router.patch('/:eventId', auth(), validate(eventValidation.updateEvent), eventController.updateEvent);
+router.patch('/:eventId/status', auth(['eventManager']), validate(eventValidation.adminUpdateEvent), eventController.updateEvent);
 router.post('/:eventId', auth(), validate(eventValidation.addAttendee),  attendeeController.addAttendeeToEvent);
 router.get('/attendees/:eventId', auth(), validate(eventValidation.getEventById), eventController.getEventAttendees);
 router.delete('/:eventId/attendee/:attendeeId', auth(), validate(eventValidation.removeAttendeeFromEvent), attendeeController.removeAttendeeFromEvent);
