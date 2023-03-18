@@ -21,6 +21,10 @@ const eventSchema = mongoose.Schema({
     organizer: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    status: {
+        type:Boolean,
+        default: false
     }
 },{
     timestamps: true
