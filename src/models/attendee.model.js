@@ -23,6 +23,8 @@ const attendeeSchema = mongoose.Schema({
         type: String,
     },
     events: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Event' }]
+},{
+    timestamps: true
 });
 
 attendeeSchema.statics.isEmailTaken = async function (email, excludeUserId) {

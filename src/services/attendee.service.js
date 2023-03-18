@@ -1,5 +1,4 @@
 const { Attendee, Event } = require('../models');
-const {getEventWithCountOfAttendees} = require('./event.service');
 
 const craeteAttendee = async (body) => {
     return await Attendee.create(body);
