@@ -51,7 +51,7 @@ const adminUpdateEvent = {
         eventId: Joi.string().required()
     }),
     body: Joi.object().keys({
-        status: Joi.bool(),
+        status: Joi.bool().required(),
         reason: Joi.string()
     })
 }
