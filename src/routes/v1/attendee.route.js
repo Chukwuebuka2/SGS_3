@@ -9,7 +9,7 @@ const router = express.Router();
 router.delete('/:attendeeId', auth('eventManager'), validate(attendeeValidation.deleteAttendee), attendeeController.deleteAttendee);
 router.get('/', auth('eventManager'), attendeeController.getAllAttendees);
 router.patch('/:attendeeId', auth(), validate(attendeeValidation.updateAttendee), attendeeController.updateAttendee);
-router.get('/average', auth(), attendeeController.averageAttendee);
-router.get('/popular-event', attendeeController.popularEvent);
+router.get('/average', auth('eventManager'), attendeeController.averageAttendee);
+router.get('/popular-event', auth('eventManager'), attendeeController.popularEvent);
 
 module.exports = router;

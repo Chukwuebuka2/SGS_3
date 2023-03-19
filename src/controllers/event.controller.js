@@ -63,7 +63,7 @@ const updateEvent = catchAsync(async (req, res) => {
 const getUserEventWithAttendee = catchAsync(async (req, res) => {
     const event = await eventService.getUserEventWithAttendee(req.user.id);
     if (event === null) {
-        res.status(httpStatus.OK).json({ message: "No event has been created" });
+        res.status(httpStatus.OK).json({ message: "No event has been created by this user" });
         return;
     }
     res.status(httpStatus.OK).send(event);
