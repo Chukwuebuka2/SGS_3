@@ -60,6 +60,15 @@ const updateEvent = catchAsync(async (req, res) => {
     res.status(httpStatus.OK).send(event);
 });
 
+const getUserEventWithAttendee = catchAsync(async (req, res) => {
+    const event = await eventService.getUserEventWithAttendee(req.user.id);
+    if (event === null) {
+        res.status(httpStatus.OK).json({ message: "No event has been created" });
+        return;
+    }
+    res.status(httpStatus.OK).send(event);
+});
+
 module.exports = {
     createEvent,
     getAllEvent,
@@ -67,5 +76,6 @@ module.exports = {
     deleteEvent,
     updateEvent,
     getEventAttendees,
-    getEventWithCountOfAttendees
+    getEventWithCountOfAttendees,
+    getUserEventWithAttendee
 }

@@ -6,9 +6,9 @@ const attendeeController = require('../../controllers/attendee.controller');
 
 const router = express.Router();
 
-router.delete('/:attendeeId', auth(), validate(attendeeValidation.deleteAttendee), attendeeController.deleteAttendee);
-router.get('/', auth(), attendeeController.getAllAttendees);
-router.patch('/:attendeeId', validate(attendeeValidation.updateAttendee), attendeeController.updateAttendee);
+router.delete('/:attendeeId', auth('eventManager'), validate(attendeeValidation.deleteAttendee), attendeeController.deleteAttendee);
+router.get('/', auth('eventManager'), attendeeController.getAllAttendees);
+router.patch('/:attendeeId', auth(), validate(attendeeValidation.updateAttendee), attendeeController.updateAttendee);
 router.get('/average', auth(), attendeeController.averageAttendee);
 router.get('/popular-event', attendeeController.popularEvent);
 
