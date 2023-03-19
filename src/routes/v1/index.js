@@ -11,11 +11,11 @@ const defaultRoutes = [
     route: authRoute,
   }, 
   {
-    path: '/event',
+    path: '/events',
     route: eventRoute
   },
   {
-    path: '/attendee',
+    path: '/attendees',
     route: attendeeRoute
   }
 ];
