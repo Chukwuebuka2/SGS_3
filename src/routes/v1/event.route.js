@@ -16,7 +16,7 @@ router.delete('/:eventId', auth('eventManager'), validate(eventValidation.getEve
 router.patch('/:eventId', auth(), validate(eventValidation.updateEvent), eventController.updateEvent);
 router.patch('/:eventId/status', auth('eventManager'), validate(eventValidation.adminUpdateEvent), eventController.updateEvent);
 router.post('/:eventId', auth(), validate(eventValidation.addAttendee),  attendeeController.addAttendeeToEvent);
-router.get('/attendees/:eventId', auth(), validate(eventValidation.getEventById), eventController.getEventAttendees);
+router.get('/attendees/:eventId', auth('eventManager'), validate(eventValidation.getEventById), eventController.getEventAttendees);
 router.delete('/:eventId/attendee/:attendeeId', auth(), validate(eventValidation.removeAttendeeFromEvent), attendeeController.removeAttendeeFromEvent);
 
 module.exports = router;
