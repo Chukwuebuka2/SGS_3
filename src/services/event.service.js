@@ -20,8 +20,8 @@ const deleteEvent = async (id) => {
     return await Event.findByIdAndDelete(id);
 };
 
-const updateEvent = async (id, updateBody) => {
-    return await Event.findByIdAndUpdate(id, { ...updateBody }, { new: true });
+const updateEvent = async (id, organizer, updateBody) => {
+    return await Event.updateOne({ id, organizer }, updateBody, { new: true })//.findByIdAndUpdate(id, { ...updateBody }, { new: true });
 }
 
 const getEventWithCountOfAttendees = async () => {

@@ -1,11 +1,8 @@
 const httpStatus = require('http-status');
 const catchAsync = require('../utils/catchAsync');
 const { eventService, attendeeService, emailService } = require('../services');
-const ApiError = require('../utils/ApiError');
-const { email } = require('../config/config');
 
 const createEvent = catchAsync(async (req, res) => {
-    console.log(req.user.id)
     const event = await eventService.createEvent(req.body, req.user.id);
     res.status(httpStatus.CREATED).send(event);
 });
@@ -52,7 +49,7 @@ const deleteEvent = catchAsync(async (req, res) => {
 });
 
 const updateEvent = catchAsync(async (req, res) => {
-    const event = await eventService.updateEvent(req.params.eventId, req.body);
+    const event = await eventService.updateEvent(req.params.eventId, req.user.organizer, req.body);
     const { title, date, organizer: { name, email } } = await eventService.getEventById(req.params.eventId)
     if (req.body.status === false) {
         await emailService.rejectEventEmail(name, title, date, email, req.body.reason)
